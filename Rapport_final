@@ -1,0 +1,69 @@
+# 📦 Rapport de Projet – PSI 2025 : LivinParis
+--
+## 1. 🎯 Introduction
+Le projet **LivinParis** prend la forme une application console écrite en **C#** et d'un site optionnel que nous avons effectué, avec une base de données **MySQL**, visant à simuler un service de livraison de plats dans Paris, en utilisant le **réseau de métro modélisé sous forme de graphe**.  
+Il inclut un **calcul du plus court chemin** pour un itinéraire et une **coloration de graphe** pour illustrer les relations utilisateurs, et les trois algorithmes classiques pour le calcul des trajets optimaux sont: **Dijkstra**, **Bellman-Ford** et **Floyd-Warshall**.  
+En complément, comme énoncé, une interface web a également été développée, permettant une interaction moderne et accessible via navigateur.
+
+--
+
+## 2. 🧱 Architecture du projet (différents fichiers)
+Le projet est composé de plusieurs fichiers C#, chacun jouant un rôle précis dans la logique, par exemple:
+-`Program.cs` : menu d'entrée principal, gestion des interfaces
+-`Graphe.cs` :  structure de graphe et les algorithmes de  plus court trajet
+- `Noeud.cs` / `Liens.cs` : éléments fondamentaux du graphe (stations et connexions)
+-`AffichageGrapheColoration.cs` / `AffichageGrapheMetro.cs` : affichage des graphes
+- `MySQL` : utilisée pour stocker tables utilisateurs, plats, commandes, trajets, livraisons...
+
+--
+
+## 3. ✅ Fonctionnalités Implémentées
+- la Création, modification et suppression d’utilisateurs (avec un role client, cuisinier ou les deux) et de plats
+- passer et gerer des commandes
+- trajet de livraison connecté à un graphe de stations de métro
+- Calcul automatique du meilleur trajet via **Dijkstra**, **Bellman-Ford**, **Floyd-Warshall**
+- Coloration de graphe : algorithme type **Welsh-Powell** basé sur les voisins
+- Vérification de graphe biparti ou planaire
+- Génération d’identifiants utilisateur personnalisés (ex : `AL12DU16`)
+- Vérification des doublons en base (emails)
+- Affichage et enregistrement graphique du graphe (stations, utilisateurs)
+
+--
+
+## 4. ⚙️ Petits Détails Techniques
+L'application s’appuie sur des **classes orientées objet** pour structurer les entités de la bdd : `Utilisateur`, `Plat`, `Commande`.  
+La base de données **MySQL** est utilisée pour stocker les données dans des tables et exploiter les données nécessaires. Le **graphe est construit à partir de fichiers CSV** et manipulé avec des **listes de voisins**. Les calculs de cheminement prennent en compte le **temps de trajet entre deux stations**.
+
+--
+
+## 5. 🖼️ Visualisation Graphique
+Deux visualisations sont générées automatiquement :
+- `graphe_coloration.png` : montre les utilisateurs avec des couleurs différentes selon leurs voisins
+- `metro_graph.png` : représente le réseau de métro utilisé pour les trajets
+
+Ces images sont générées via **System.Drawing** et enregistrées au format PNG.
+
+--
+
+## 6. 🧠 Conclusion et Améliorations Possibles
+Le projet LivinParis respecte largement les exigences du sujet **PSI 2025**.  
+Il combine **gestion de base de données**, **logique métier orientée objet**, **algorithmes de graphes** et **génération graphique**.
+
+--
+
+## 7. 🌐 Interface Web ASP.NET (bonus)
+En plus de l’application console, le projet comporte un site.
+Ce site permet de **gérer les utilisateurs, les plats, les commandes et les livraisons** dans une interface ergonomique.
+
+- L'authentification est gérée par **rôles** (client, cuisinier, les deux) 
+- L’ensemble des opérations est connecté à **la base de données MySQL**
+
+L’objectif de cette interface est de permettre une **utilisation conviviale** en environnement graphique et d’illustrer la **complémentarité entre back-end console et front-end web moderne**.
+
+
+---
+
+
+✍ **Rédigé par :** *[Nathan BELAISCH, Ali BEN YEZZA et Nathan BARRÉ]*  
+📅 **Date :** *[04/05/25]* 
+
